@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% load account %}
+
+
+{% block content %}
+<section class="relative about-banner">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                            <form class="login" method="POST" action="{% url 'account_login' %}">
+                                {% csrf_token %}
+                                <h2 class="fw-bold mb-2 text-uppercase text-white-50">Кіру</h2>
+                                <p class="text-white-50 mb-5">Логин пароліңізді енгізіңіз</p>
+
+                                <label style="color:#ff0000;">{{ messages }}</label>
+                                <div class="form-outline form-white mb-4">
+                                    {{ form.login }}
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    {{ form.password }}
+                                </div>
+
+
+
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Кіру
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                        <div>
+                            <p class="mb-0"><a
+                                    href="{% url 'account_signup' %}">Жүйеде тіркелмегенсіз бе?</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/index.webp' %});"
+     data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+             data-scrollax-parent="true">
+            <div class="col-md-6 ftco-animate">
+                <h2 class="subheading">Қош келдіңіз!</h2>
+                <h1>Электронды еңбек кітапшасының ақпараттық жүйесі
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 py-5">
+                <div class="heading-section ftco-animate">
+                    <span class="subheading">Сервис</span>
+                    <h2 class="mb-4">Жүйе қалай жұмыс жасайды?</h2>
+                    <p>Өтініш білдіруші жүйеге тіркеледі және қызметтен пайдаланады</p>
+                    {% if user.is_authenticated %}
+                    <p><a href="{% url 'employment' %}" class="btn btn-primary py-3 px-4">Қарау</a></p>
+                    {% else %}
+                    <p><a href="{% url 'account_login' %}" class="btn btn-primary py-3 px-4">Қарау</a></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-9 services-wrap px-4 pt-5">
+                <div class="row pt-md-3">
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="services text-center">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <img src="{% static 'icons/0011.png' %}" alt="">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Ұйым</h3>
+                                <p>Қазақстан Республикасының электрондық үкіметі</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="services text-center">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <img src="{% static 'icons/0021.png' %}" alt="">
+                            </div>
+                            <div class="text">
+                                <h3>Байланыс телефоны</h3>
+                                <p>+ 7 707 149 85 35</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="services text-center">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <img src="{% static 'icons/0031.png' %}" alt="">
+                            </div>
+                            <div class="text">
+                                <h3>Қызметті алушы</h3>
+                                <p>Физикалық тұлға</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-6 d-flex">
+                <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end"
+                     style="background-image:url({% static 'images/new3.jpeg' %});">
+                    <a href="https://www.youtube.com/watch?v=ldHHyN4yjfQ"
+
+                       class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+                        <span class="icon-play"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 pl-md-5">
+                <div class="row justify-content-start pt-3 pb-3">
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <h2 class="mb-4">Еңбек кітапшаны алу үлгісі</h2>
+                        <p>Жеке физикалық тұлғалардың жүйеге қандай да бір іс-әрекет жасау туралы өтініш жасауы</p>
+                        <div class="tabulation-2 mt-4">
+                            <ul class="nav nav-pills nav-fill d-md-flex d-block">
+                                <li class="nav-item mb-md-0 mb-2">
+                                    <a class="nav-link active py-2" data-toggle="tab" href="#home1">Біздің миссия</a>
+                                </li>
+                                <li class="nav-item px-lg-2 mb-md-0 mb-2">
+                                    <a class="nav-link py-2" data-toggle="tab" href="#home2">Жұмыс өзектілігі</a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content bg-light rounded mt-2">
+                                <div class="tab-pane container p-0 active" id="home1">
+                                    <p>Электрондық құжат айналымы жүйесі қажетті ақпаратты тезірек жинауға мүмкіндік
+                                        береді,
+                                        сондай-ақ осы процесті автоматтандыра отырып, құжаттар мен олар бойынша
+                                        тапсырмалардың орындалуын бақылау рәсімін жеңілдету</p>
+                                </div>
+                                <div class="tab-pane container p-0 fade" id="home2">
+                                    <p>Еңбек кітапшасын электронды жасау өзекті және еңбек жүгін азайту</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<br>
+
+<section class="ftco-consultation ftco-section ftco-no-pt ftco-no-pb img"
+         style="background-image: url({% static 'images/c.png' %});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row d-md-flex justify-content-end">
+            <div class="col-md-6 half p-3 py-5 pl-md-5 ftco-animate heading-section heading-section-white">
+                <h2 class="mb-4">Кеңес алу</h2>
+                <form action="{% url 'consultation' %}" class="consultation" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.topic }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.message }}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Жіберу" class="btn btn-dark py-3 px-4">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Портал жаңалықтары</span>
+
+                <a href="{% url 'news'%}"><h2>Барлығын қарау</h2>
+                </a>
+            </div>
+        </div>
+        <div class="row d-flex">
+            {% for new in news %}
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry justify-content-end">
+
+                    <a href="{% url 'news_detail' new.slug %}" class="block-20"
+                       style="background-image: url({{ new.image.url }});">
+                    </a>
+                    <div class="text p-4 float-right d-block">
+                        <div class="topper d-flex align-items-center">
+                            <div class="one py-2 pl-3 pr-1 align-self-stretch">
+                                <span class="day">{{ new.data_created|date:"d" }}</span>
+                            </div>
+                            <div class="two pl-0 pr-3 py-2 align-self-stretch">
+                                <span class="yr">{{ new.data_created|date:"Y" }}</span>
+                                <span class="mos">{{ new.data_created|date:"M" }}</span>
+                            </div>
+                        </div>
+                        <div class="text px-8 py-8">
+                            <h3 class="heading mb-0"><a href="{% url 'news_detail' new.slug %}">{{ new.title }}</a></h3>
+                        </div>
+                        <p>
+                            {{ new.description|truncatewords:10}}
+                           </p>
+                        <p><a href="{% url 'news_detail' new.slug %}" class="btn btn-primary">Әрі қарай оқу</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

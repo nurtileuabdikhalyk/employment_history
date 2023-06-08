@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+
+<!-- END nav -->
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/index.webp' %});"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <h1 class="mb-3 bread">{{ title }}</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Басты бет <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>{{ title }} </span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+            <div class="col-md-12 mb-4">
+                <h2 class="h3">Байланыс ақпараттары</h2>
+            </div>
+            <!--          <div class="w-100"></div>-->
+            <!--          <div class="col-md-3">-->
+            <!--            <p><span>Адрес:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>-->
+            <!--          </div>-->
+            <div class="col-md-3">
+                <p><span>Телефон:</span> <a href="tel://1234567920">+ 7 707 149 85 35</a></p>
+            </div>
+            <div class="col-md-6">
+                <p><span>Email:</span> <a href="mailto:info@yoursite.com">nurtileu.abdikhalyk@gmail.com</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><span>Сайт:</span> <a href="#">www.nurtileu.kz</a></p>
+            </div>
+        </div>
+        <div class="row block-9 no-gutters">
+            <div class="col-lg-6 order-md-last d-flex">
+                <form action="{% url 'consultation' %}" class="bg-light p-5 contact-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                         {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                       {{ form.topic }}
+                    </div>
+                    <div class="form-group">
+
+                          {{ form.message }}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Жіберу" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-6 d-flex">
+ <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23943.357389125827!2d76.93574263188503!3d43.21542307906419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836f18bf548af5%3A0x4eb3eb5eaef8aa6!2z0JrQsNC30LDRhdGB0LrQuNC5INCd0LDRhtC40L7QvdCw0LvRjNC90YvQuSDQo9C90LjQstC10YDRgdC40YLQtdGCINC40LzQtdC90Lgg0JDQu9GMLdCk0LDRgNCw0LHQuA!5e0!3m2!1sru!2skz!4v1666283184583!5m2!1sru!2skz"
+                            width="800" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+          </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+{% endblock content %}

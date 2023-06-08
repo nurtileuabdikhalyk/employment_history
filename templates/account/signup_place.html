@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load account %}
+
+{% block content %}
+<section class="relative about-banner">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                            <form class="login" method="POST" action="{% url 'account_signup_place' %}">
+                                {% csrf_token %}
+                                <h2 class="fw-bold mb-2 text-uppercase text-white-50">Тіркелу</h2>
+
+                                <label for="first_name">Мекеме логині</label>
+                                <div class="form-outline form-white mb-4" id="first_name">
+                                    {{ form.username }}
+                                </div>
+                                <label for="fatherland">Мекеме аты</label>
+                                <div class="form-outline form-white mb-4" id="fatherland">
+                                    {{ form.name }}
+                                </div>
+                                <label for="last_name">БСН(БИН)</label>
+                                <div class="form-outline form-white mb-4" id="last_name">
+                                    {{ form.bin }}
+                                </div>
+
+                                <label for="password">Құпия сөз</label>
+                                <div class="form-outline form-white mb-4" id="password">
+                                    {{ form.password1 }}
+                                </div>
+
+                                <label for="password2">Құпия сөзді қайталаңыз</label>
+                                <div class="form-outline form-white mb-4" id="password2">
+                                    {{ form.password2 }}
+                                </div>
+
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Тіркелу &raquo;
+                                </button>
+
+                            </form>
+                            <div>
+                                <p class="mb-0"><a
+                                        href="{% url 'account_login' %}">Жүйеде бұрын тіркелгенсіз бе?</a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

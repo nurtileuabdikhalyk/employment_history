@@ -1,0 +1,52 @@
+{% load static %}
+<style> @import url('https://fonts.googleapis.com/css2?family=Roboto:font-weight:100&display=swap'); </style>
+
+
+{% block content %}
+<body>
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Жұмысқа тұрған уақыты</th>
+                    <th scope="col">Жұмыстан шыққан уақыты</th>
+                    <th scope="col">Жұмыс орын</th>
+                    <th scope="col">Лауазымы</th>
+                    <th scope="col">Құжат, датасы</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for q in question %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ q.data_created }}</td>
+
+                    <td>
+                        {% if q.data_ended %}
+
+                        {{ q.data_ended }}
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
+                    <td>{{ q.place_of_work }}</td>
+                    <td>{{ q.position }}</td>
+                    <td>{{ q.command }}</td>
+                </tr>
+                {% endfor%}
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+
+</body>
+{% endblock content %}

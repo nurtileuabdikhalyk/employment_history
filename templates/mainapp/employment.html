@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/index.webp' %});"
+     data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+             data-scrollax-parent="true">
+            <div class="col-md-6 ftco-animate">
+                <h2 class="subheading">Қош келдіңіз!</h2>
+                <h1>Электронды еңбек кітапшасының ақпараттық жүйесі
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Қолданушы</th>
+                    <th scope="col">Жұмысқа тұрған уақыты</th>
+                    <th scope="col">Жұмыстан шыққан уақыты</th>
+                    <th scope="col">Жұмыс орын</th>
+                    <th scope="col">Лауазымы</th>
+                    <th scope="col">Құжат, күні</th>
+                    <th scope="col">Қағаз еңбек кітапша</th>
+
+                    <th scope="col">&nbsp;&nbsp;&nbsp;Өңдеу</th>
+<!--                    {% if user.employee.staff %}-->
+<!--                    <th scope="col">&nbsp;&nbsp;&nbsp;Өңдеу</th>-->
+<!--                    {% endif %}-->
+                </tr>
+                </thead>
+                <tbody>
+                {% for q in question %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+
+                    <td>{{ q.customer.first_name }} {% if q.customer.last_name %}  {{ q.customer.last_name }} {% endif %}{{ q.customer.fatherland }}</td>
+
+                    <td>{{ q.data_created }}</td>
+
+                    <td>
+                        {% if q.data_ended %}
+
+                        {{ q.data_ended }}
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
+                    <td>{{ q.place_of_work.name }}</td>
+                    <td>{{ q.position }}</td>
+
+                    <td>{{ q.command }}</td>
+                    <td>
+                        {% if q.file %}
+                        <a href="{{ q.file.url }}">{{ q.file.name }}</a>
+                        {% else %}
+                        Тіркелмеген
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'update' q.id %}"><img width="22" height="22"
+                                                               src="{% static 'icons/draw.png' %}" alt=""></a>
+                        &nbsp;
+                        <a href="{% url 'delete' q.id %}"><img width="22" height="22"
+                                                               src="{% static 'icons/delete.png' %}" alt=""></a>
+                    </td>
+
+<!--                    {% if user.employee.staff %}-->
+<!--                    <td>-->
+<!--                        <a href="{% url 'update' q.id %}"><img width="22" height="22"-->
+<!--                                                               src="{% static 'icons/draw.png' %}" alt=""></a>-->
+<!--                        &nbsp;-->
+<!--                        <a href="{% url 'delete' q.id %}"><img width="22" height="22"-->
+<!--                                                               src="{% static 'icons/delete.png' %}" alt=""></a>-->
+<!--                    </td>-->
+<!--                    {% endif %}-->
+                </tr>
+                {% endfor%}
+                {% if user.employee.staff %}
+                <tr>
+
+                    <th></th>
+
+                    <td>Жұмыс туралы мәлімет қосу</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><p><a href="{% url 'add_employment' %}" class="btn btn-primary py-3 px-4">+</a></p></td>
+
+                </tr>
+                {% endif %}
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+        <p><a href="{% url 'download' %}" class="btn btn-primary py-3 px-4">Жүктеу</a></p>
+    </div>
+</section>
+
+
+</body>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+<!--        <a class="navbar-brand" href="{% url 'home' %}">Legalcare <span>A Law Firm Agency</span></a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Мәзір
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                {% with request.resolver_match.url_name as url_name %}
+                <li class="nav-item{% if url_name == 'home' %} active {% endif %}">
+                    <a href="{% url 'home' %}" class="nav-link">Басты бет</a>
+                </li>
+
+                <li class="nav-item{% if url_name == 'about' %} active {% endif %}">
+                    <a href="{% url 'about' %}" class="nav-link">Жүйе туралы</a>
+                </li>
+                <li class="nav-item{% if url_name == 'news' %} active {% endif %}">
+                    <a href="{% url 'news' %}" class="nav-link">Жаңалықтар</a>
+                </li>
+                <li class="nav-item{% if url_name == 'contact' %} active {% endif %}">
+                    <a href="{% url 'contact' %}" class="nav-link">Контактілер</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link">Шығу</a></li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a
+                            href="{% url 'account_login' %}" class="nav-link">    Кіру</a></li>
+                <li class="nav-item"><a href="{% url 'account_signup' %}" class="nav-link">Тіркелу</a></li>
+                {% endif %}
+                {% endwith %}
+            </ul>
+        </div>
+    </div>
+</nav>
